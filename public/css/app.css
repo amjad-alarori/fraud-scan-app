@@ -539,6 +539,9 @@ video {
 .z-50 {
   z-index: 50;
 }
+.float-right {
+  float: right;
+}
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -731,6 +734,10 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(255 106 61 / var(--tw-bg-opacity));
 }
+.bg-gray-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(229 231 235 / var(--tw-bg-opacity));
+}
 .bg-gradient-to-br {
   background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
 }
@@ -799,6 +806,10 @@ video {
 .py-3 {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
+}
+.py-px {
+  padding-top: 1px;
+  padding-bottom: 1px;
 }
 .pl-3 {
   padding-left: 0.75rem;
@@ -890,6 +901,10 @@ video {
 .text-\[\#FF6A3D\] {
   --tw-text-opacity: 1;
   color: rgb(255 106 61 / var(--tw-text-opacity));
+}
+.text-green-900 {
+  --tw-text-opacity: 1;
+  color: rgb(20 83 45 / var(--tw-text-opacity));
 }
 .antialiased {
   -webkit-font-smoothing: antialiased;
@@ -1006,6 +1021,22 @@ video {
 
 .pagination > .disabled > span {
     color: #999;
+}
+
+.first\:rounded-bl-lg:first-child {
+  border-bottom-left-radius: 0.5rem;
+}
+
+.first\:rounded-tl-lg:first-child {
+  border-top-left-radius: 0.5rem;
+}
+
+.last\:rounded-br-lg:last-child {
+  border-bottom-right-radius: 0.5rem;
+}
+
+.last\:rounded-tr-lg:last-child {
+  border-top-right-radius: 0.5rem;
 }
 
 .hover\:-translate-y-1:hover {
