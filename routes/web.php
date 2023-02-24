@@ -21,6 +21,9 @@ Route::get('/customers', [CustomerController::class, 'index']);
 
 Route::get('/scans', [ScanController::class, 'index']);
 
+Route::get('/scans/{id}', [ScanController::class, 'show']);
+
+
 Route::get('/error', function () {
     $message = session('message') ?: 'Oops! Something went wrong. Please try again later.';
     return view('error.error')->with('message', $message);

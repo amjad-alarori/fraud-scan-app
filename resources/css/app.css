@@ -11,3 +11,36 @@
     @apply px-4 py-3 bg-gray-200 first:rounded-t-lg last:rounded-b-lg sm:first:rounded-t-none sm:last:rounded-b-none sm:first:rounded-tl-lg sm:first:rounded-bl-lg sm:last:rounded-tr-lg sm:last:rounded-br-lg
 }
 
+.pagination {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    margin: 1rem 0;
+}
+
+.pagination > li {
+    margin: 0 0.25rem;
+}
+
+.pagination > li > a {
+    display: block;
+    padding: 0.5rem 0.75rem;
+    text-decoration: none;
+    color: #555;
+    border: 1px solid #ddd;
+    border-radius: 0.25rem;
+}
+
+.pagination > li > a:hover {
+    background-color: #eee;
+}
+
+.pagination > .active > a {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+}
+
+.pagination > .disabled > span {
+    color: #999;
+}

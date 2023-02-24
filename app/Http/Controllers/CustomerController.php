@@ -89,6 +89,7 @@ class CustomerController extends Controller
         }
         unset($customer); // unset the reference to avoid potential bugs later
 
+
         return view('customers.index', compact('customers'));
         } catch (GuzzleException $e) {
             // handle the exception by redirecting the user to an error page

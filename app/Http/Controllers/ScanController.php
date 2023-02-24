@@ -19,6 +19,16 @@ class ScanController extends Controller
         return view('scans.index', compact('scans'));
     }
 
+    public function show($id)
+    {
+        $scan = Scan::find($id);
+
+        return view('scans.show', [
+            'scan' => $scan
+        ]);
+    }
+
+
     public function api()
     {
         $scans = Scan::with('customers')->get();
