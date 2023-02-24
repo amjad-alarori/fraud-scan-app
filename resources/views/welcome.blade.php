@@ -9,6 +9,7 @@
     </head>
     <body class="">
     <p>This is my page</p>
-    <td><button onclick="location.href='{{ url('customers') }}'">Check Customers</button></td>
+    <td><button onclick="location.href='{{ url('customers') }}'">Scan Customers</button></td>
+    <td><button onclick="location.href='{{ url('scans') }}'">Show Scans</button></td>
     </body>
 </html>

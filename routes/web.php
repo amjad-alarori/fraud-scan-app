@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\ScanController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,7 +19,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/customers', [CustomerController::class, 'index']);
 
+Route::get('/scans', [ScanController::class, 'index']);
 
 Route::get('/', function () {
-    return view('fraud');
+    return view('welcome');
 });

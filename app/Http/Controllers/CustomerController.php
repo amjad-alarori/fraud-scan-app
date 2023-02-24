@@ -6,7 +6,10 @@ use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Http;
 use GuzzleHttp\Client;
-
+use App\Models\Scan;
+use App\Models\Customer;
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 class CustomerController extends Controller
 {
     /**
@@ -25,6 +28,8 @@ class CustomerController extends Controller
 
         $seen_ips = array();
         $seen_ibans = array();
+
+        $scan = Scan::create(['created_at' => Carbon::now()]);
 
         function startsWith(string $haystack, string $needle): bool
         {
@@ -61,6 +66,25 @@ class CustomerController extends Controller
             if ($age < 18) {
                 $customer['fraud'] = 'Under Age';
             }
+
+
+            // Create a new customer model
+            $customerModel = Customer::create([
+                'customer_id' => $customer['customerId'],
+                'bsn' => $customer['bsn'],
+                'first_name' => $customer['firstName'],
+                'last_name' => $customer['lastName'],
+                'date_of_birth' => $customer['dateOfBirth'],
+                'phone_number' => $customer['phoneNumber'],
+                'email' => $customer['email'],
+                'tag' => $customer['tag'],
+                'ip_address' => $customer['ipAddress'],
+                'iban' => $customer['iban'],
+                'fraud' => $customer['fraud'] ?? null,
+            ]);
+
+            // Attach the customer model to the scan
+            $scan->customers()->attach($customerModel);
         }
         unset($customer); // unset the reference to avoid potential bugs later
 
