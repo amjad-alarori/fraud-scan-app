@@ -18,4 +18,11 @@ class ScanController extends Controller
 
         return view('scans.index', compact('scans'));
     }
+
+    public function api()
+    {
+        $scans = Scan::with('customers')->get();
+
+        return response()->json($scans);
+    }
 }
