@@ -21,6 +21,11 @@ Route::get('/customers', [CustomerController::class, 'index']);
 
 Route::get('/scans', [ScanController::class, 'index']);
 
+Route::get('/error', function () {
+    $message = session('message') ?: 'Oops! Something went wrong. Please try again later.';
+    return view('error.error')->with('message', $message);
+})->name('error');
+
 Route::get('/', function () {
     return view('welcome');
 });

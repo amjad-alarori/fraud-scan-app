@@ -1,3 +1,6 @@
+<td><button onclick="location.href='{{ url('') }}'">Return Home</button></td>
+<td><button onclick="location.href='{{ url('scans') }}'">Show Scans</button></td>
+
 <table>
     <thead>
     <tr>

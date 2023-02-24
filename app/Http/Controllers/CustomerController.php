@@ -17,6 +17,7 @@ class CustomerController extends Controller
      */
     public function index()
     {
+        try {
         $client = new Client([
             'base_uri' => 'http://192.168.1.236:8080/api/v1/',
             'timeout' => 10.0,
@@ -89,6 +90,10 @@ class CustomerController extends Controller
         unset($customer); // unset the reference to avoid potential bugs later
 
         return view('customers.index', compact('customers'));
+        } catch (GuzzleException $e) {
+            // handle the exception by redirecting the user to an error page
+            return view('errors.error', ['message' => $e->getMessage()]);
+        }
 
     }
 }
