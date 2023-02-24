@@ -19,13 +19,17 @@ class CustomerController extends Controller
     {
         try {
         $client = new Client([
-            'base_uri' => 'http://192.168.1.236:8080/api/v1/',
+            'base_uri' => 'http://192.16s8.1.236:8080/api/v1/',
             'timeout' => 10.0,
         ]);
 
         $response = $client->get('customers');
 
         $customers = json_decode($response->getBody(), true)['customers'];
+        } catch (GuzzleException $e) {
+            // handle the exception by redirecting the user to an error page
+            return view('errors.error', ['message' => $e->getMessage()]);
+        }
 
         $seen_ips = array();
         $seen_ibans = array();
@@ -91,10 +95,7 @@ class CustomerController extends Controller
 
 
         return view('customers.index', compact('customers'));
-        } catch (GuzzleException $e) {
-            // handle the exception by redirecting the user to an error page
-            return view('errors.error', ['message' => $e->getMessage()]);
-        }
+
 
     }
 }
