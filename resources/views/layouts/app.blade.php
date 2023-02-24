@@ -4,7 +4,7 @@
     @include('includes.head')
 </head>
 
-<body>
+<body >
 <div class="container">
     <div id="main" class="row">
         @yield('content')
