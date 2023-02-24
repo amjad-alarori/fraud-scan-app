@@ -1,15 +1,17 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app')
+@section('content')
 
-        <title>Fraud scan App</title>
-
-    </head>
-    <body class="">
-    <p>This is my page</p>
-    <td><button onclick="location.href='{{ url('customers') }}'">Scan Customers</button></td>
-    <td><button onclick="location.href='{{ url('scans') }}'">Show Scans</button></td>
+    <body class="flex flex-col justify-center items-center h-screen bg-gradient-to-br from-purple-600 to-indigo-900">
+    <div class="grid grid-cols-2 gap-4">
+        <button class="bg-gradient-to-br from-purple-500 to-indigo-600 hover:from-purple-600 hover:to-indigo-700 text-white font-bold py-8 px-8 rounded-full transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110" onclick="location.href='{{ url('customers') }}'">
+            Scan Customers
+        </button>
+        <button class="bg-gradient-to-br from-green-500 to-teal-600 hover:from-green-600 hover:to-teal-700 text-white font-bold py-8 px-8 rounded-full transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110" onclick="location.href='{{ url('scans') }}'">
+            Show Scans
+        </button>
+    </div>
     </body>
-</html>
+
+@stop
+
+

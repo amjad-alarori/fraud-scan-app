@@ -1,6 +1,6 @@
+@extends('layouts.app')
+@section('content')
 
-<h1>All Scans</h1>
-<td><button onclick="location.href='{{ url('') }}'">Return Home</button></td>
 @foreach($scans as $scan)
     <h2>Scan {{ $scan->id }} - {{ $scan->created_at }}</h2>
     <ul>
@@ -9,3 +9,5 @@
         @endforeach
     </ul>
 @endforeach
+
+@stop
