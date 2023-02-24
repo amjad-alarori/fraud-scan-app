@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\User;
 use GuzzleHttp\Exception\GuzzleException;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Http;
 use GuzzleHttp\Client;
@@ -21,7 +22,16 @@ class ScanController extends Controller
 
     public function show($id)
     {
-        $scan = Scan::find($id);
+        // Try to retrieve the Scan model from the cache
+        $scan = Cache::get('scan_' . $id);
+
+        if (!$scan) {
+            // If the Scan model is not found in the cache, retrieve it from the database
+            $scan = Scan::find($id);
+
+            // Store the Scan model in the cache for future requests
+            Cache::put('scan_' . $id, $scan, now()->addMinutes(5)); // Cache for 5 minutes
+        }
 
         return view('scans.show', [
             'scan' => $scan
@@ -31,8 +41,14 @@ class ScanController extends Controller
 
     public function api()
     {
-        $scans = Scan::with('customers')->get();
+        $cachedResults = Cache::get('scans_api_results');
 
-        return response()->json($scans);
+        if ($cachedResults) {
+            return response()->json($cachedResults);
+        } else {
+            $scans = Scan::with('customers')->get();
+            Cache::put('scans_api_results', $scans, now()->addMinutes(5));
+            return response()->json($scans);
+        }
     }
 }

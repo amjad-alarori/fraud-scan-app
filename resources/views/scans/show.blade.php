@@ -3,6 +3,8 @@
 @section('content')
 
     <h2 class="text-3xl font-bold text-gray-900 mb-6">Scan {{ $scan->id }} - {{ $scan->created_at }}</h2>
+
+
 <div class="flex items-center justify-center">
     <table class="border-separate border-spacing-y-2 text-sm">
         <thead class="sr-only">
