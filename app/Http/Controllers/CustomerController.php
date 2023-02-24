@@ -19,7 +19,7 @@ class CustomerController extends Controller
     {
         try {
         $client = new Client([
-            'base_uri' => 'http://192.16s8.1.236:8080/api/v1/',
+            'base_uri' => 'http://192.168.1.236:8080/api/v1/',
             'timeout' => 10.0,
         ]);
 

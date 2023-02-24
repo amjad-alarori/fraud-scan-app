@@ -5,7 +5,7 @@
 <main class="h-screen w-full flex flex-col justify-center items-center bg-[#1A2238]">
     <h1 class="text-9xl font-extrabold text-white tracking-widest">Error</h1>
     <div class="bg-[#FF6A3D] px-2 text-sm rounded rotate-12 absolute">
-       Something went wrong...
+       Something went wrong... Please try again one more time ...
     </div>
     <button onclick="location.href='{{ url('') }}'" class="mt-5">
         <a
