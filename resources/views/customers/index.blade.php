@@ -15,8 +15,6 @@
             <th>Tag</th>
             <th>Ip Address</th>
             <th>IBAN</th>
-            <th>Last Invoice Date</th>
-            <th>Last Login DateTime</th>
             <th>Sort Fraud</th>
         </tr>
         </thead>
@@ -34,8 +32,6 @@
                 <td class="td">{{ $customer['tag'] }}</td>
                 <td class="td">{{ $customer['ipAddress'] }}</td>
                 <td class="td">{{ $customer['iban'] }}</td>
-                <td class="td">{{ $customer['lastInvoiceDate'] }}</td>
-                <td class="td">{{ $customer['lastLoginDateTime'] }}</td>
                 <td class="td">@if(isset($customer['fraud']))
                         @switch($customer['fraud'])
                         @case('IBAN Fraud')
@@ -56,9 +52,6 @@
                 </td>
             </tr>
         @endforeach
-
-
-
         </tbody>
     </table>
 </div>
