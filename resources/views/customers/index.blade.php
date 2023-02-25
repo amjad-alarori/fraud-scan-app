@@ -3,21 +3,22 @@
 @section('content')
 <div class="flex items-center justify-center w-screen">
     <table class="border-separate border-spacing-y-2 text-sm">
-        <thead class="">
-        <tr>
-            <th>Customer ID</th>
-            <th>BSN</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Date of Birth</th>
-            <th>Phone Number</th>
-            <th>Email</th>
-            <th>Tag</th>
-            <th>Ip Address</th>
-            <th>IBAN</th>
-            <th>Sort Fraud</th>
+        <thead class="bg-gray-100 w-screen">
+        <tr class="w-screen">
+            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Customer ID</th>
+            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">BSN</th>
+            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">First Name</th>
+            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Last Name</th>
+            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date of Birth</th>
+            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Phone Number</th>
+            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Email</th>
+            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tag</th>
+            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">IP Address</th>
+            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">IBAN</th>
+            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Sort Fraud</th>
         </tr>
         </thead>
+
         <tbody>
 
         @foreach ($customers as $customer)
@@ -46,13 +47,11 @@
                             @case('Under Age')
                                 <span class="inline-block rounded-md bg-orange-600/50 px-2 py-1 text-xs font-semibold uppercase text-orange-900 antialiased w-32">Under Age</span>
                                 @break
-                        @default
-                            <span class="inline-block rounded-md bg-green-600/50 px-2 py-1 text-xs font-semibold uppercase text-green-100 antialiased w-32">No Fraud</span>
                     @endswitch
-                    @endif</td>
-                <td class="td">
-
-                </td>
+                    @endif
+                    @if(!isset($customer['fraud']))
+                        <span class="inline-block rounded-md bg-green-600/50 px-2 py-1 text-xs font-semibold uppercase text-green-100 antialiased w-32">No Fraud</span>
+                    @endif
             </tr>
         @endforeach
         </tbody>
