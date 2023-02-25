@@ -12,6 +12,10 @@
             <th>Customer ID</th>
             <th>First Name</th>
             <th>Last Name</th>
+            <th>Date Of Birth</th>
+            <th>Phone number</th>
+            <th>Ip Address</th>
+            <th>IBAN</th>
             <th>Sort Fraud</th>
         </tr>
         </thead>
@@ -21,6 +25,11 @@
                 <td class="td">{{ $customer->id }}</td>
                 <td class="td">{{ $customer->first_name }}</td>
                 <td class="td">{{ $customer->last_name }}</td>
+                <td class="td">{{ $customer->date_of_birth }}</td>
+                <td class="td">{{ $customer->phone_number }}</td>
+                <td class="td">{{ $customer->ip_address }}</td>
+                <td class="td">{{ $customer->iban }}</td>
+
                 <td class="td">
                     @switch($customer->fraud)
                         @case('IBAN Fraud')
