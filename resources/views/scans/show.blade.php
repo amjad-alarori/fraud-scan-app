@@ -1,9 +1,10 @@
 @extends('layouts.app')
 @include('includes.header')
 @section('content')
-
-    <h2 class="text-3xl font-bold text-gray-900 mb-6">Scan {{ $scan->id }} - {{ $scan->created_at }}</h2>
-
+<br>
+<div class="flex items-center justify-center">
+    <span class=" bg-blue-100 text-blue-800 text-2xl font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-2">{{ $scan->created_at }}</span></h1>
+</div>
 
 <div class="flex items-center justify-center">
     <table class="border-separate border-spacing-y-2 text-sm">
