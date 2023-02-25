@@ -121,10 +121,6 @@ To run tests, run the following command.
 **Server:** Docker
 
 
-##  Logo
-![Logo](https://flowbite.com/docs/images/logo.svg)
-
-
 ## 🚀 About Me
 I'm a full stack developer...
 
