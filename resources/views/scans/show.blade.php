@@ -42,6 +42,9 @@
                         @case('IP Address Fraud')
                             <span class="inline-block rounded-md bg-yellow-600/50 px-2 py-1 text-xs font-semibold uppercase text-yellow-900 antialiased w-32">IP Fraud</span>
                             @break
+                        @case('Under Age')
+                            <span class="inline-block rounded-md bg-orange-600/50 px-2 py-1 text-xs font-semibold uppercase text-orange-900 antialiased w-32">Under Age</span>
+                            @break
                         @default
                             <span class="inline-block rounded-md bg-green-600/50 px-2 py-1 text-xs font-semibold uppercase text-green-100 antialiased w-32">No Fraud</span>
                     @endswitch
