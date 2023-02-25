@@ -29,9 +29,12 @@ A brief description of what this project does and who it's for
 ## Appendix
 
 If You running the API of customers and this project on Docker you need to make sure to use your docker host ip address instead of 'localhost' as this call is firing out from the Docker container to another container.
-to get your own Docker Host IP Address you can use this command:
+to get your own Docker Host IP Address you can use this command for mac Users:
 
-'ipconfig getifaddr en0'   ---- mac Users.
+```bash
+ipconfig getifaddr en0
+```
+
 
 
 
