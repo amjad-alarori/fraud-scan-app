@@ -42,7 +42,7 @@ https://github.com/amjad-alarori/fraud-scan-app
 
 ## Installation
 
-1. Clone this repository on your local machine using git clone https://github.com/your-username/your-repo-name.git
+1. Clone this repository on your local machine using git clone https://github.com/amjad-alarori/fraud-scan-app.git
 2. Install Docker on your machine if it's not already installed.
 3. Run this command to start the Docker container.
 ```bash
