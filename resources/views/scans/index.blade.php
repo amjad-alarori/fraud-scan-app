@@ -3,7 +3,7 @@
 @section('content')
 
     <div class="flex items-center justify-center">
-        <table class="">
+        <table class="border-separate border-spacing-y-2 text-sm">
             <thead class="">
             <tr class="">
                 <th>Scan ID</th>
