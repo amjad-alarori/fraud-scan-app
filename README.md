@@ -95,21 +95,19 @@ What is fraudulent activity?
 
 ## Extra Tasks (Bonus)
 
-What is fraudulent activity?
-
 - Created API endpoints to serve the data.
 - Used Tailwind CSS to style the application.
 - Display the reason why a customer was reported after scanning, for example: “Customer has non-NL phone nr.”
 - Cached the last scan results and restore them when the page is refreshed.
-  #TO DO- Test your application using Pest.
+- Tested application using Pest.
 
 
 ## Running Tests
 
-To run tests, run the following command. #TO DO
+To run tests, run the following command.
 
 ```bash
-  npm run test
+  ./vendor/bin/pest  
 ```
 
 
