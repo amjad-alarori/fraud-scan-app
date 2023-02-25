@@ -6,8 +6,8 @@
         <table class="border-separate border-spacing-y-2 text-sm">
             <thead class="">
             <tr class="">
-                <th>Scan ID</th>
                 <th>Created At</th>
+                <th>Scan ID</th>
             </tr>
             </thead>
             <tbody>
