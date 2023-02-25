@@ -63,6 +63,12 @@ npm install
 npm run watch
 ```
 
+7. Don't forget to migrate
+
+```bash
+php artisan migrate
+```
+
 
 ## Requirments
 
