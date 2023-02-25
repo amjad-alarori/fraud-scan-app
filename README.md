@@ -1,67 +1,134 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# LARAVEL ASSESSMENT FRAUD DETECTOR
 
-## About Laravel
+A brief description of what this project does and who it's for
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Authors
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- [@amjadalarori](https://www.github.com/amjad-alarori)
 
-## Learning Laravel
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## API Reference
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+#### Get all Segmented After Scan
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+```http
+  GET /api/scans
+```
 
-## Laravel Sponsors
+#### Get all Customers
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+```http
+  GET http://YOUR_DOCKER_HOST_IP_ADDRESS/api/v1/customers
+```
 
-### Premium Partners
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
 
-## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Appendix
 
-## Code of Conduct
+If You running the API of customers and this project on Docker you need to make sure to use your docker host ip address instead of 'localhost' as this call is firing out from the Docker container to another container.
+to get your own Docker Host IP Address you can use this command:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+'ipconfig getifaddr en0'   ---- mac Users.
 
-## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-## License
+## Demo
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-# fraud-scan-app
+https://github.com/amjad-alarori/fraud-scan-app
+
+
+## Installation
+
+1. Clone this repository on your local machine using git clone https://github.com/your-username/your-repo-name.git
+2. Install Docker on your machine if it's not already installed.
+3. Run this command to start the Docker container.
+```bash
+./vendor/bin/sail up
+```
+4. Run this command to Pull the API Docker image.
+```bash
+docker pull vzdeveloper/customers-api
+```
+5. Install npm dependencies by running:
+```bash
+npm install
+```
+
+6. Start the server
+
+```bash
+npm run watch
+```
+
+
+## Requirments
+
+What is fraudulent activity?
+
+- Two customers with the same IP-address or same IBAN are both fraudulent.
+- A customer with a phone number from outside the Netherlands is fraudulent.
+- A customer that is younger than 18 years old is fraudulent.
+
+
+
+
+## Features
+
+- The application retrieves all customers from the customer API and checks them for fraudulent activity
+- The application displays all customers and highlights the fraudulent ones.
+- Every time a scan is completed, scan will be inserted as a new “Scan” with the following data:
+    + Scan date/time.
+    + Create and attach all customer models (relationship).
+    + Per customer, tracking of whether they were marked as fraudulent or not.
+- Displays all scans that have been executed, including all recorded data for that scan.
+
+
+
+## Extra Tasks (Bonus)
+
+What is fraudulent activity?
+
+- Created API endpoints to serve the data.
+- Used Tailwind CSS to style the application.
+- Display the reason why a customer was reported after scanning, for example: “Customer has non-NL phone nr.”
+- Cached the last scan results and restore them when the page is refreshed.
+  #TO DO- Test your application using Pest.
+
+
+## Running Tests
+
+To run tests, run the following command. #TO DO
+
+```bash
+  npm run test
+```
+
+
+## Tech Stack
+
+**Client:** Laravel, TailwindCSS
+
+**Server:** Docker
+
+
+##  Logo
+![Logo](https://flowbite.com/docs/images/logo.svg)
+
+
+## 🚀 About Me
+I'm a full stack developer...
+
+
+## 🔗 Links
+[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://amjadalarori.nl/)
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/amjad-alarori/)
+
+
+
+## Feedback
+
+If you have any feedback, please reach out to us at amjad.alarori@outlook.com
+
