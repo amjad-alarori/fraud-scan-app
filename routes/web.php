@@ -24,7 +24,7 @@ Route::group(['prefix' => 'scans'], function () {
 
 
 Route::get('/error', function () {
-    return view('error.error')->with('message', $message);
+    return view('error.error');
 })->name('error');
 
 Route::get('/', function () {
