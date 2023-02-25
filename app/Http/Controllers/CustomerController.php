@@ -58,6 +58,7 @@ class CustomerController extends Controller
         $seen_ips = array();
         $seen_ibans = array();
 
+        // Register the scan in DB
         $scan = Scan::create(['created_at' => Carbon::now()]);
 
 
