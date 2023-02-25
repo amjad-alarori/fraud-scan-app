@@ -15,7 +15,18 @@ class ScanController extends Controller
 {
     public function index()
     {
-        $scans = Scan::with('customers')->get();
+        $cachedScans = Cache::get('scans_index');
+
+        if ($cachedScans) {
+            // If the scans are found in the cache, return them
+            $scans = $cachedScans;
+        } else {
+            // If the scans are not found in the cache, retrieve them from the database
+            $scans = Scan::with('customers')->get();
+
+            // Store the scans in the cache for future requests
+            Cache::put('scans_index', $scans, now()->addMinutes(30)); // Cache for 30 minutes
+        }
 
         return view('scans.index', compact('scans'));
     }
@@ -30,7 +41,7 @@ class ScanController extends Controller
             $scan = Scan::find($id);
 
             // Store the Scan model in the cache for future requests
-            Cache::put('scan_' . $id, $scan, now()->addMinutes(5)); // Cache for 5 minutes
+            Cache::put('scan_' . $id, $scan, now()->addMinutes(30)); // Cache for 30 minutes
         }
 
         return view('scans.show', [

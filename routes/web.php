@@ -15,17 +15,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
-
 Route::get('/customers', [CustomerController::class, 'index']);
 
-Route::get('/scans', [ScanController::class, 'index']);
-
-Route::get('/scans/{id}', [ScanController::class, 'show']);
+Route::group(['prefix' => 'scans'], function () {
+    Route::get('/', [ScanController::class, 'index']);
+    Route::get('/{id}', [ScanController::class, 'show']);
+});
 
 
 Route::get('/error', function () {
-    $message = session('message') ?: 'Oops! Something went wrong. Please try again later.';
     return view('error.error')->with('message', $message);
 })->name('error');
 
