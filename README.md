@@ -1,6 +1,10 @@
 
 # LARAVEL ASSESSMENT FRAUD DETECTOR
 
+![alt text](https://github.com/amjad-alarori/fraud-scan-app/blob/main/assets/intro.png)
+![alt text](https://github.com/amjad-alarori/fraud-scan-app/blob/main/assets/scans.png)
+![alt text](https://github.com/amjad-alarori/fraud-scan-app/blob/main/assets/after_scan.png)
+
 A brief description of what this project does and who it's for
 
 
