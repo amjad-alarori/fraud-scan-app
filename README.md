@@ -59,7 +59,7 @@ https://github.com/amjad-alarori/fraud-scan-app
 ```bash
 docker pull vzdeveloper/customers-api
 ```
-5. Run this command to Pull the API Docker image.
+5. Run this command to run the API Docker Container.
 ```bash
 docker run -p 8080:80 vzdeveloper/customers-api:latest
 ```
