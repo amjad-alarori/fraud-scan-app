@@ -59,18 +59,22 @@ https://github.com/amjad-alarori/fraud-scan-app
 ```bash
 docker pull vzdeveloper/customers-api
 ```
-5. Install npm dependencies by running:
+5. Run this command to Pull the API Docker image.
+```bash
+docker run -p 8080:80 vzdeveloper/customers-api:latest
+```
+6. Install npm dependencies by running:
 ```bash
 npm install
 ```
 
-6. Start the server
+7. Start the server
 
 ```bash
 npm run watch
 ```
 
-7. Don't forget to migrate
+8. Don't forget to migrate
 
 ```bash
 php artisan migrate
